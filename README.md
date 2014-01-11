@@ -14,6 +14,3 @@ $('div').plugin('destroy');
 $('div').plugin('sayThings', 'say this', 'and this');
 ```
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/nitinhayaran/jquery-plugin-pattern/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
