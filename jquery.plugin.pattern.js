@@ -36,9 +36,10 @@
 	// A really lightweight plugin wrapper around the constructor,
 	// preventing against multiple instantiations
 	$.fn[pluginName] = function(option) {
-		var args = arguments;
+		var args = arguments,
+				result;
 		
-		return this.each(function() {
+		this.each(function() {
 			var $this = $(this),
 				data = $.data(this, 'plugin_' + pluginName),
 				options = typeof option === 'object' && option;
@@ -50,9 +51,12 @@
 			//   - $('.dial').plugin('destroy');
 			//   - $('.dial').plugin('render', $('.new-child'));
 			if (typeof option === 'string') {
-				data[option].apply(data, Array.prototype.slice.call(args, 1));
+				result = data[option].apply(data, Array.prototype.slice.call(args, 1));
 			}
 		});
+
+		// To enable plugin returns values
+    return result || this;
 	};
 
 })(jQuery, window, document);
